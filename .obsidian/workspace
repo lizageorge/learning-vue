@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "f553e2c1d29682e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "531adc203defc463",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "notes/2 - The Basics.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "97790a5c493e3365",
+    "type": "split",
+    "children": [
+      {
+        "id": "54d04c8a809a5b2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cc298e5fd391b033",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "eb08c32ab3431bd3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1021cbfdabd15d3d",
+    "type": "split",
+    "children": [
+      {
+        "id": "4959b31d6cea569a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "88152766e9a5c665",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "notes/2 - The Basics.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "531adc203defc463",
+  "lastOpenFiles": [
+    "notes/2 - The Basics.md",
+    "notes/1 - Introduction 1.md",
+    "notes/1 - Introduction.md",
+    "Untitled.md"
+  ]
+}
