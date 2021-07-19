@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Widget Practice</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+
+    <style>
+        li{
+            margin: 5px;
+            padding: 2px;
+        }
+        .fav{
+            background-color: aliceblue;
+            color: rgb(1, 43, 1);
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
     <h1> hiya vue!</h1>
@@ -30,8 +42,30 @@
         <p>Counter: {{counter}}</p>
 
         <button v-on:click="counter++">+</button>
-        <button v-on:click="counter--">-</button>~
+        <button v-on:click="counter--">-</button>
         
+        <hr>
+
+        <div @mousemove="updateCoordinates"
+        style="background-color: gray; width: 400px; height: 200px; padding: 100px; display: inline-block; text-align: center;"
+        >position: {{x}} - {{y}}</div>
+
+        <hr> 
+
+        <p>Lovely foods: 
+            <span v-for="food in lovelyFoods"> 
+                <a  :href="food.url" > {{food.name}} </a>,  
+            </span> and more!
+        </p>
+        <ul>
+            <li v-for="food in lovelyFoods" :class="{fav:food.isFav}"> {{food.name}} : 
+                <a  :href="food.url" > recipe</a>
+                , rated {{food.rating}} out of 5
+                <span @click="toggleFav(food)" v-show="!food.isFav">(favorite!)</span>
+                <span @click="toggleFav(food)" v-show="food.isFav">(unfavorite)</span>
+            </li>
+        </ul>
+        <p> Your favorites: <span v-for="favs in favFoods">{{favs.name}}, </span></p>
     </div>
     <script src=app.js></script>
 </body>

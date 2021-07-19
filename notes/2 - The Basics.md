@@ -1,6 +1,6 @@
 # 2 - The Basics
-###  7-16-21, Vue JS 3 Tutorial for Beginners by Net Ninja
-### https://www.youtube.com/watch?v=F7PLPJqVotk
+###  7-16-21- 7-18-21, Vue JS 3 Tutorial for Beginners by Net Ninja
+### https://www.youtube.com/watch?v=F7PLPJqVotk, https://www.youtube.com/watch?v=CYPZBK8zUik
 
 - Practice: starting w just creating a widget and embedding into a plain html page
 
@@ -29,17 +29,14 @@
 
 #### Methods
 - another object in the createApp() object list can be 	`methods: {}`, in which you can define your own methods (each item in this list is just `functionName(){funtion definition}`)
-- to access a component in the data, you have to use the keyword `this.`;
+- to access a component in the data (so something not passed in as a parameter or a local var), you have to use the keyword `this.`;
 	- ![[Pasted image 20210718180841.png]]
 
+#### Computed Properties
+- defining data in the data() of the component based on other data in the component using `computed: { functionName(){functionDefinition}}`
+- in the functionDefinition, return a value based on what's in `data()`. Now you can access that returned value like any property in `data()` by calling the name of the function in {{}}. 
+- ![[Pasted image 20210718204039.png]] returns a filtered array
 
-### Defining Events in the HTML page - Click Events
-- **directives** - keywords starting with `v-` used in the html tag that can define specific behavior for that tag, like event handling, in the following `=""` (JS in those ""). 
-- so the `v-on:click`, will create an event when this element is clicked
-	- [] ![[Pasted image 20210716135629.png]]
-	- `v-on` has a shortform of `@` 
-- to call methods in the html page, you can use `functionName` or `functionName()` (not difference) in the tag, or use `functionName(input)` if necessary
-	- ![[Pasted image 20210718180446.png]]
 
 ### Conditional Rendering
 - you can make an element appear based on the value of a condition, use the directive `v-if` and a boolean value in the following "". When the value is false, that element is removes from the DOM completely
@@ -53,3 +50,37 @@
 - alternatively you can use the directive `v-show`, which works very similarly but instead of removing the element from the DOM entirely it just hides it with `display:none`
 
 - performance vise, removing and re-inserting an element from the DOM repeatedly is more expensive, so use `v-show` for things that change frequently (like drop down menus) and `v-if` for things that change once (like a log in menu)
+
+### Defining Events
+#### Click Events
+- **directives** - keywords starting with `v-` used in the html tag that can define specific behavior for that tag, like event handling, in the following `=""` (JS in those ""). 
+- so the `v-on:click`, will create an event when this element is clicked
+	- [] ![[Pasted image 20210716135629.png]]
+	- `v-on` has a shortform of `@` 
+- to call methods in the html page, you can use `functionName` or `functionName()` (not difference) in the tag, or use `functionName(input)` if necessary
+	- ![[Pasted image 20210718180446.png]]
+- there are more directives that use other movements of the mouse, `@mouseover, mouseleave, dblclick, mousemove`
+
+#### The event object
+- automatically created for every event you declare with a directive
+- you can access it in the component by using the first argument in the method linked to the directive. the props can be used for more specific response to the event 
+	- []![[Pasted image 20210718194444.png]]
+	- if you want more than one argument passed to the event handling function, declare where event object is passed by using `$event`. With only one argument, it's automatically passed (don't need `$event` when calling it)
+		- ![[Pasted image 20210718194604.png]]
+
+### Outputting lists with v-for
+- the directive `v-for` can cycle through a provided array. The syntax is like a for-each loop, so `v-for="item in list"`
+- you can use this to display all the elements in an array that you don't know the size of, or that is too big to manually create tags for each of them
+	- [] ![[Pasted image 20210718195710.png]]
+
+### Binding
+#### Attribute binding
+- when you want the attributes of an html elements (the values in the tag - href, src, style, etc.) to be dynamic, you need to use `v-bind:attributeName="content"`
+	- [] ![[Pasted image 20210718200516.png]]
+- a shortform of `v-bind:attributeName="content"` is `:attributeName="content"`
+- AKA data binding
+
+#### Dynamic Classes
+- similar to dynamically setting html attributes, we can dynamically set classes conditionally based on the value of a boolean. Use `v-bind:class` or `:class` and in the "" pass in an object of kay-value pairs, of the class name and the corresponding boolean
+	- [] ![[Pasted image 20210718201450.png]]
+
