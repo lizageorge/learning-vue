@@ -1,7 +1,9 @@
 
 # 3 - The Vue CLI
 ###  7-27-21, Vue JS 3 Tutorial for Beginners by Net Ninja
-### https://www.youtube.com/watch?v=GWRvrSqnFbM&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=4
+[Part 1](https://www.youtube.com/watch?v=GWRvrSqnFbM&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=4), [Part 2](https://www.youtube.com/watch?v=KM1U6DqZf8M&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=5)
+
+---
 
 #### So far we've only worked with widgets. To build a full vue application, we need to use something called the CLI (command line interface)
 
@@ -25,7 +27,7 @@
 	- use that serve script like  `npm run serve` in a terminal to open the blank vue application in a live dev browser.
 
 
-### Vue files and styles
+### Vue files structure
 - again. all `.vue` files as separate components. the main one is usually App.vue
 - **every component includes three parts**
 	- a `template` tag for the HTML template for that component. 
@@ -53,3 +55,5 @@
 	- ![[Pasted image 20210729195507.png]]
 - then use `this.$refs.refName` to call it in JS
 	- ![[Pasted image 20210729195644.png]]
+
+### Styling; scoped and global CSS

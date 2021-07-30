@@ -1,6 +1,8 @@
 # 1 - Introduction
 ###  7-15-21, Vue JS 3 Tutorial for Beginners by Net Ninja
-### https://www.youtube.com/watch?v=YrxBCBibVo0
+[Intro](https://www.youtube.com/watch?v=YrxBCBibVo0)
+
+---
 
 ## What is Vue?
 - JS and typescript framework for web apps, singe page applications, and stand alone widgets

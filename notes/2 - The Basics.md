@@ -1,8 +1,10 @@
 # 2 - The Basics
 ###  7-16-21- 7-18-21, Vue JS 3 Tutorial for Beginners by Net Ninja
-### https://www.youtube.com/watch?v=F7PLPJqVotk, https://www.youtube.com/watch?v=CYPZBK8zUik
 
+[Part 1](https://www.youtube.com/watch?v=F7PLPJqVotk), [Part 2](https://www.youtube.com/watch?v=CYPZBK8zUik)
 - Practice: starting w just creating a widget and embedding into a plain html page
+
+---
 
 ### Installation
 - just include the script tag `<script src="https://unpkg.com/vue@next"></script>`
