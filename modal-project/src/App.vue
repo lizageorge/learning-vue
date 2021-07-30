@@ -1,36 +1,50 @@
 <template>
   <h1>{{ title }}</h1>
-  <div v-if="showModal" >
-    <Modal :announcement="announcement" @closeModal="toggleModal">
-      <h2>Announcement: </h2>
+  <div v-if="showModal">
+    <Modal :text="announcement" @closeModal="toggleModal">
+      <h2>Announcement:</h2>
       <template v-slot:links>
         <a href="google.com">Google</a>
         <a href="bing.com">Bing</a>
       </template>
     </Modal>
   </div>
-  <br>
+
+  <div v-if="showModal2">
+    <!-- challenge! -->
+    <Modal :text="reminder" @closeModal="toggleModal2"> 
+      <h2>Reminder:</h2>
+    </Modal>
+  </div>
+
+  <br />
   <button @click="toggleModal">show the modal!</button>
+  <button @click="toggleModal2">show the second modal~</button>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 
 export default {
   name: "App",
-  components: {Modal},
+  components: { Modal },
   data() {
     return {
       title: "my first vue app~",
-      announcement: "don't forget to register for classes!",
-      showModal : false
+      announcement: "school starts in two weeks~",
+      reminder: "don't forget to register for classes!",
+      showModal: false,
+      showModal2: false,
     };
   },
   methods: {
-    toggleModal(){
-      this.showModal = !this.showModal
-    }
-  }
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
+    toggleModal2() {
+      this.showModal2 = !this.showModal2;
+    },
+  },
 };
 </script>
 
@@ -43,7 +57,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-h1{
+h1 {
   color: #502c2c;
 }
 </style>

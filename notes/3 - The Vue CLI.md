@@ -26,6 +26,7 @@
 		- incl images and stuff in an `assests` sub folder
 	- use that serve script like  `npm run serve` in a terminal to open the blank vue application in a live dev browser.
 
+---
 ## Basics of Vue Components
 
 ### Vue files structure
@@ -44,7 +45,7 @@
 - it helps to name custom components by capital letters so they never conflict with existing HTML tags
 - multiple components help with readability and ease of development for large sites
 	- a component for each element of the website helps (header, footer, article, sidebar, etc)
-	- also helps with reusability (just import into multiple files and/or inserting several times into the DOM of one page)
+	- also helps with reusability (just import into multiple files and/or inserting several times into the DOM of one page and only alter props/slots)
 - every Vue app will always have a root component, and when using Vue CLI to create a project it's called App.vue. Following components will be nested under that. 
 	- ![[Pasted image 20210729195918.png]]
 	- this is called the **component tree**
@@ -68,7 +69,7 @@
 			- ![[Pasted image 20210729203718.png]]
 	- make the selector more specific, like by using classes
 
-
+---
 ## Working between parent and child comps 
 
 ### Props
@@ -103,3 +104,10 @@
 	- (1) add another template tag within the comp in the parent, and it should have the attribute `v-slot:slotName`
 		- ![[Pasted image 20210729214119.png]]
 	- (2) in the child comp, use `<slot name="slotName"></slot>` (the default slot won't show up the same time/way the named slots do, they will display separately)
+
+---
+###  Teleport component
+- allows you to move an element to some other part of the DOM (even some part outside the Vue scope/the app div)
+- just use `<teleport></teleport` elements, with an attribute of `to="CSSselector"`, then assign that selector to another element
+	- ![[Pasted image 20210729215754.png]]
+- remember that styles declared in root component won't transfer yet, but just add that css selector to the css properties

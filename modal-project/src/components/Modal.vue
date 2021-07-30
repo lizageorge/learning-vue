@@ -2,7 +2,7 @@
     <div class="backdrop" @click.self='closeModal'>
         <div class = "modal"  >
             <slot></slot>
-            <h1> {{announcement}} </h1>
+            <h1> {{text}} </h1>
             <div class="actions">
                 <slot name="links"></slot>
             </div>
@@ -13,7 +13,7 @@
 <script>
 
 export default{
-    props:["announcement"],
+    props:["text"],
     methods:{
         closeModal(){
             this.$emit('closeModal')
