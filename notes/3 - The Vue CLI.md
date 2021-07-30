@@ -27,7 +27,7 @@
 
 ### Vue files and styles
 - again. all `.vue` files as separate components. the main one is usually App.vue
-- every component includes three parts
+- **every component includes three parts**
 	- a `template` tag for the HTML template for that component. 
 		- split up the template html template into each component file, they'll get injected into the dom separately
 	- a `script` tag that includes the export object (technically optional, but nearly always need it)
@@ -36,4 +36,20 @@
 	- a `style` tag (technically optional)
 		- props are actually global to everything on the page, not just that component
 
-- if you're using more than one component, group them in the components folder and import them into App
+#### Using multiple components
+- if you're using more than one component, group them in the components folder (just convention) and import them into App
+- it helps to name custom components by capital letters so they never conflict with existing HTML tags
+- multiple components help with readability and ease of development for large sites
+	- a component for each element of the website helps (header, footer, article, sidebar, etc)
+	- also helps with reusability (just import into multiple files and/or inserting several times into the DOM of one page)
+- every Vue app will always have a root component, and when using Vue CLI to create a project it's called App.vue. Following components will be nested under that. 
+	- ![[Pasted image 20210729195918.png]]
+	- this is called the **component tree**
+- Import components using `import anyName from 'filePath'` and add it to a `components: {anyName1, anyName2}` property in the export object , then you can use it like an HTML tag like `< anyName />`
+
+### Template Refs
+- Use in order to select a specific element in the DOM by setting it to a variable (instead of smth like querySelector)
+- just add a `ref` property to the HTML element in the template
+	- ![[Pasted image 20210729195507.png]]
+- then use `this.$refs.refName` to call it in JS
+	- ![[Pasted image 20210729195644.png]]
