@@ -26,6 +26,7 @@
 		- incl images and stuff in an `assests` sub folder
 	- use that serve script like  `npm run serve` in a terminal to open the blank vue application in a live dev browser.
 
+## Basics of Vue Components
 
 ### Vue files structure
 - again. all `.vue` files as separate components. the main one is usually App.vue
@@ -57,3 +58,48 @@
 	- ![[Pasted image 20210729195644.png]]
 
 ### Styling; scoped and global CSS
+- currently styles in the style tag of any tag apply to all elements in the entire SPA
+- two solutions
+	- add the keyword `scoped` to the style tag of one component
+		- ![[Pasted image 20210729203422.png]]
+		- in the bkgd, vue is adding a randomized data attribute to the selectors of elements and connects it to the styles you specify
+		- there is a (minimal) performance hit to this
+		- this gets rid of any global style when you want hem applied tho. to work with this, add a separate global css file and importing it into the main js file
+			- ![[Pasted image 20210729203718.png]]
+	- make the selector more specific, like by using classes
+
+
+## Working between parent and child comps 
+
+### Props
+- use to pass data from a parent component to a child component
+	- allows greater re-usability, you can pass diff content each time you use a component from the parent component
+	- also allows to store data used by multiple child components in only a parent component and then pass down to the children (*data in the parent component=single source of truth*)
+- to use props...
+	- (1) just add attribute to the component tag when calling component in parent
+		- ![[Pasted image 20210729204351.png]]
+		- if you want multiple props, just list one after another like normal HTML attributes and list them  out in the props property below
+		- if you want to pass in data other than static strings, just data bind by adding a color infront of the attribute name (`header` vs `:header`). Now the non-string content can be added directly into the quotations, or can be returned as vars from the data() object of the parent comp
+			- [] (the later option, looks very clear) ![[Pasted image 20210729205459.png]]
+	- (2) then in child component add a `props: []` property to export object
+		- ![[Pasted image 20210729204441.png]]
+	- (3) now you can use that prop value from var in the templates
+- [] you can pass in a "theme" prop from the parent for a modal (dark, sale, warning, etc.) and in the modal class use dynamic classes based on the value of that theme prop value
+
+
+### Emitting custom events
+- custom event = an event fired from a chld event that is listened to from the parent comp
+- use `this.$emit(eventName)` in the function definition in the child comp, and in the parent comp listen using `@eventName` (just as we listen to default events like `@click`)
+#### Click event modifiers
+- add a `.modifer` after `@click` (so  `@click.right` will only fire if user right clicks, and `@click.self` will only fire if only that element is clicked like a background div)
+
+### Slots
+- if you want to pass data more complex than what you put into props (specifically full templates), use slots instead
+- to use slots
+	- (1) in the parent class, create the component with a start and end HTML tag
+	- (2) in the parent class, pass in template code into the component
+	- (3) in the child class template, use `<slot></slot>` (it can have some default content in it, but that will only display if there isn't anything else in the parent  call of the comp)
+- you can use named slots for more complex insertion in the child class. 
+	- (1) add another template tag within the comp in the parent, and it should have the attribute `v-slot:slotName`
+		- ![[Pasted image 20210729214119.png]]
+	- (2) in the child comp, use `<slot name="slotName"></slot>` (the default slot won't show up the same time/way the named slots do, they will display separately)

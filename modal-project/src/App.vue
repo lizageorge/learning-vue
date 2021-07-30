@@ -1,6 +1,16 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />
+  <div v-if="showModal" >
+    <Modal :announcement="announcement" @closeModal="toggleModal">
+      <h2>Announcement: </h2>
+      <template v-slot:links>
+        <a href="google.com">Google</a>
+        <a href="bing.com">Bing</a>
+      </template>
+    </Modal>
+  </div>
+  <br>
+  <button @click="toggleModal">show the modal!</button>
 </template>
 
 <script>
@@ -12,8 +22,15 @@ export default {
   data() {
     return {
       title: "my first vue app~",
+      announcement: "don't forget to register for classes!",
+      showModal : false
     };
   },
+  methods: {
+    toggleModal(){
+      this.showModal = !this.showModal
+    }
+  }
 };
 </script>
 

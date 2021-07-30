@@ -1,10 +1,28 @@
 <template>
-    <div class="backdrop">
-        <div class = "modal">
-            <p> modal content</p>
+    <div class="backdrop" @click.self='closeModal'>
+        <div class = "modal"  >
+            <slot></slot>
+            <h1> {{announcement}} </h1>
+            <div class="actions">
+                <slot name="links"></slot>
+            </div>
         </div>
     </div>
 </template>
+
+<script>
+
+export default{
+    props:["announcement"],
+    methods:{
+        closeModal(){
+            this.$emit('closeModal')
+            // console.log('closeModal called')
+        }
+    }
+}
+</script>
+
 
 <!-- style content entirely from Shaun's course files; https://github.com/iamshaunjp/Vue-3-Firebase/blob/lesson-28/modal-project/src/components/Modal.vue -->
 <style>
@@ -22,11 +40,12 @@
     width: 100%;
     height: 100%;
   }
-  /* .modal h1 {
+  .modal h1 {
     color: #03cfb4;
     border: none;
     padding: 0;
   }
+  
   .modal p {
     font-style: normal;
   }
@@ -44,7 +63,7 @@
     margin: 10px;
   }
   /* sale styles */
-  /* .modal.sale {
+  .modal.sale {
     background: crimson;
     color: white;
   }
@@ -56,5 +75,5 @@
   }
   .modal.sale .actions a {
     color: white;
-  } */ 
+  }
 </style>
